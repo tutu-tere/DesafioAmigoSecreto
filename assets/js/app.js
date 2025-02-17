@@ -24,6 +24,7 @@ function sortearAmigo(){
     console.log(amigoSorteado); 
     document.getElementById("resultado").innerHTML = amigoSorteado; // Mostrar el resultado en el html
 }
+
 // Adicional ocultar el resultado
 function ocultarResultado(){
     document.getElementById("resultado").innerHTML = "";

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Amigo Secreto</title>
+    <script src="https://kit.fontawesome.com/36db41983a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,28 +19,32 @@
         </header>
         
         <section class="input-section">
+            <h3 class="section-title">Digita tú nombre aquí</h3>
+            <div class="input-wrapper-dos">
+                <input type="text" id="amigoSorteado" class="input-name redon" placeholder="Escribe tu nombre">
+            </div>
             <h2 class="section-title">Digite el nombre de sus amigos</h2>
-            <div class="input-wrapper">
+            <div class="input-wrapper-uno">
                 <input type="text" id="inputAmigo" class="input-name" placeholder="Escribe un nombre">
                 <button class="button-add" onclick="agregarAmigo()">Añadir</button>
-            </div>
-           
+            </div>   
+            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
-
+            
             <div class="button-container">
                 <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
                     <img src="assets/img/play_circle_outline.png" alt="Ícono para sortear">
                     Sortear amigo
                 </button>
                 <button class="button-draw" onclick="ocultarResultado()" aria-label="Ocultar amigo secreto">
-                    <img src="assets/img/visibility-off.svg" alt="Ícono para ocultar">
-                    Secreto 🤫
+                    <i class="fa-regular fa-eye-slash"></i> Ocultar resultado
+
                 </button>
             </div>
         </section>
     </main>
-
+    
     <script src="assets/js/app.js" defer></script>
 </body>
 </html>
