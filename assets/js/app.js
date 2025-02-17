@@ -18,4 +18,16 @@ inputAmigo.value = "";  // Limpiar el input
 console.log(amigos);
 }
 
+//2. Recorrer el array para sortear entre los elementos
+function sortearAmigo(){
+    let amigoSorteado = amigos[Math.floor(Math.random()*amigos.length)]; // Math.floor redondea hacia abajo, Math.random genera un numero aleatorio entre 0 y 1 y lo multiplica por la cantidad de elementos en el array
+    console.log(amigoSorteado); 
+    document.getElementById("resultado").innerHTML = amigoSorteado; // Mostrar el resultado en el html
+}
+// Adicional ocultar el resultado
+function ocultarResultado(){
+    document.getElementById("resultado").innerHTML = "";
+}
+
+
 
