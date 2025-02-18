@@ -18,17 +18,54 @@ inputAmigo.value = "";  // Limpiar el input
 console.log(amigos);
 }
 
-//2. Recorrer el array para sortear entre los elementos
-function sortearAmigo(){
-    let amigoSorteado = amigos[Math.floor(Math.random()*amigos.length)]; // Math.floor redondea hacia abajo, Math.random genera un numero aleatorio entre 0 y 1 y lo multiplica por la cantidad de elementos en el array
-    console.log(amigoSorteado); 
-    document.getElementById("resultado").innerHTML = amigoSorteado; // Mostrar el resultado en el html
+// Función para mostrar la lista de amigos
+function mostrarAmigos() {
+  let listaAmigos = document.getElementById("listaAmigos");
+  listaAmigos.innerHTML = "";
+  amigos.forEach(amigo => {
+      let li = document.createElement("li");
+      li.textContent = amigo;
+      listaAmigos.appendChild(li);
+  });
 }
 
+// Recorrer el array para sortear entre los elementos
+function sortearAmigo() {
+  let nombreAmigo = document.getElementById("amigoSorteado").value;
+
+  if (nombreAmigo === "") {
+      alert("Por favor, ingresa tu nombre para sortear.");
+      return;
+  }
+
+  if (amigos.length < 2) {
+      alert("Necesitas al menos dos amigos para sortear un amigo secreto.");
+      return;
+  }
+
+  // Crear una copia del array de amigos excluyendo a la persona que pulsa el botón
+  let amigosExcluidos = amigos.filter(amigo => amigo !== nombreAmigo);
+
+  // Verificar que aún haya amigos en la lista excluida
+  if (amigosExcluidos.length === 0) {
+      alert("No hay suficientes amigos para realizar el sorteo.");
+      return;
+  }
+
+  // Seleccionar un amigo aleatorio
+  let amigoSorteado = amigosExcluidos[Math.floor(Math.random() * amigosExcluidos.length)];
+  
+  // Mostrar el resultado en el HTML
+  document.getElementById("resultado").innerHTML = "Amigo secreto de " + nombreAmigo + " es: " + amigoSorteado;
+
+  // Eliminar el amigo sorteado del array original
+  amigos.splice(amigos.indexOf(amigoSorteado), 1);
+  mostrarAmigos();
+  console.log(amigoSorteado + " ha sido sorteado y eliminado de la lista.");
+}
 // Adicional ocultar el resultado
 function ocultarResultado(){
     document.getElementById("resultado").innerHTML = "";
+    document.getElementById("listaAmigos").innerHTML = "";
 }
-
-
 
